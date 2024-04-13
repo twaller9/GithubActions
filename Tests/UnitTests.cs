@@ -101,5 +101,29 @@ namespace GithubActionsLab
             Assert.Throws<ArgumentNullException>(() => Program.Divide(null, "1"));
             Assert.Throws<ArgumentNullException>(() => Program.Divide(null, null));
         }
+
+        [Test]
+        public void Power_Valid_Waller()
+        {
+            Assert.AreEqual(9, Program.Power("3", "2"));
+            Assert.AreEqual(1, Program.Power("3", "0"));
+            Assert.AreEqual(125, Program.Power("5", "3"));
+        }
+
+        [Test]
+        public void Power_Invalid_Waller()
+        {
+            Assert.Throws<FormatException>(() => Program.Power("1", "e"));
+            Assert.Throws<FormatException>(() => Program.Power("e", "1"));
+            Assert.Throws<FormatException>(() => Program.Power("e", "e"));
+        }
+
+        [Test]
+        public void Power_Null_Waller()
+        {
+            Assert.Throws<ArgumentNullException>(() => Program.Power("1", null));
+            Assert.Throws<ArgumentNullException>(() => Program.Power(null, "1"));
+            Assert.Throws<ArgumentNullException>(() => Program.Power(null, null));
+        }
     }
 }
